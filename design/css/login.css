@@ -15,13 +15,13 @@ body {
   align-items: center;
 }
 
-.auth-container {
+.container {
   width: 100%;
   display: flex;
   justify-content: center;
 }
 
-.auth-box {
+.form-box {
   background: #fff;
   padding: 40px 35px;
   border-radius: 20px;
@@ -30,32 +30,50 @@ body {
   text-align: center;
 }
 
-.auth-box h2 {
+.form-box h2 {
   margin-bottom: 25px;
   color: #333;
   font-size: 24px;
 }
 
-.input-group {
-  display: flex;
-  align-items: center;
-  background: #f1f1f1;
-  border-radius: 10px;
-  margin-bottom: 20px;
-  padding: 10px 15px;
+.input-box {
+  position: relative;
+  margin-bottom: 30px;
 }
 
-.input-group i {
-  color: #888;
-  margin-right: 10px;
-}
-
-.input-group input {
-  border: none;
-  background: transparent;
-  outline: none;
+.input-box input {
   width: 100%;
+  padding: 10px 0;
   font-size: 16px;
+  color: #333;
+  border: none;
+  border-bottom: 2px solid #ddd;
+  outline: none;
+  background: transparent;
+  transition: 0.3s;
+}
+
+.input-box label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #666;
+  pointer-events: none;
+  transition: 0.3s;
+}
+
+.input-box input:focus ~ label,
+.input-box input:valid ~ label {
+  top: -20px;
+  left: 0;
+  color: #667eea;
+  font-size: 14px;
+}
+
+.input-box input:focus {
+  border-bottom: 2px solid #667eea;
 }
 
 .btn {
@@ -69,6 +87,7 @@ body {
   font-size: 16px;
   font-weight: 500;
   transition: all 0.3s ease;
+  margin-top: 10px;
 }
 
 .btn:hover {
@@ -76,24 +95,35 @@ body {
   transform: translateY(-2px);
 }
 
-.switch-text {
+.register {
   margin-top: 15px;
   font-size: 14px;
+  color: #666;
 }
 
-.switch-text a {
+.register a {
   color: #667eea;
   text-decoration: none;
   font-weight: 500;
 }
 
-.switch-text a:hover {
+.register a:hover {
   text-decoration: underline;
+}
+
+.error {
+  color: #ff3860;
+  font-size: 14px;
+  margin-bottom: 15px;
+  padding: 10px;
+  background: #ffebee;
+  border-radius: 5px;
+  border-left: 4px solid #ff3860;
 }
 
 /* Responsive */
 @media (max-width: 480px) {
-  .auth-box {
+  .form-box {
     width: 90%;
     padding: 30px 25px;
   }

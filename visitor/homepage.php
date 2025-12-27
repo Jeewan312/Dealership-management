@@ -11,19 +11,8 @@
 
 <body>
     <!-- this is for nav bar bar  -->
-    <div class="nav">
-        <div class="logo">
-            <img src="../uploads/images/Navowheels.png" alt="" class="logo" />
-        </div>
-        <div class="nav-link">
-            <ul>
-                <li> <a href="#">Home</a></li>
-                <li><a href="#">About Us</a></li>
-                <li> <a href="#">Service</a></li>
-                <li> <a href="#">Product</a></li>
-                <li><a href="login.php">login</a></li>
-            </ul>
-        </div>
+    <div> 
+        <?php include 'navbar.php'; ?> 
     </div>
     <div id="hero">
         <img src="../uploads/images/bike.background.jpg" alt="Bike" class="background" />
@@ -33,11 +22,13 @@
                 Ride the <span class="accent2">Future</span>
             </h1>
             <p>Where <span class="accent">power</span> meets <span class="accent2">innovation</span> on two wheels.</p>
-            <button>Discover More</button>
+            <a href="products.php"><button>Discover More</button></a>
         </div>
     </div>
     <div>
     </div>
+   <?php include 'herosection.php'; ?>
+   <?php include 'footer.php'; ?>
 </body>
 
 </html>
