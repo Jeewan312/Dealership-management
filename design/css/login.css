@@ -1,130 +1,148 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
-
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
 }
 
 body {
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #1e3a8a 0%, #7e22ce 100%); /* Blue to Purple Gradient */
 }
 
 .container {
-  width: 100%;
-  display: flex;
-  justify-content: center;
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
 }
 
 .form-box {
-  background: #fff;
-  padding: 40px 35px;
-  border-radius: 20px;
-  width: 350px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-  text-align: center;
+    background: #fff;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    text-align: center;
 }
 
-.form-box h2 {
-  margin-bottom: 25px;
-  color: #333;
-  font-size: 24px;
+.header .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #1e3a8a;
+    margin-bottom: 10px;
 }
 
-.input-box {
-  position: relative;
-  margin-bottom: 30px;
+.header h2 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 5px;
 }
 
-.input-box input {
-  width: 100%;
-  padding: 10px 0;
-  font-size: 16px;
-  color: #333;
-  border: none;
-  border-bottom: 2px solid #ddd;
-  outline: none;
-  background: transparent;
-  transition: 0.3s;
+.header p {
+    color: #777;
+    font-size: 14px;
+    margin-bottom: 30px;
 }
 
-.input-box label {
-  position: absolute;
-  top: 0;
-  left: 0;
-  padding: 10px 0;
-  font-size: 16px;
-  color: #666;
-  pointer-events: none;
-  transition: 0.3s;
+/* Input Groups with Floating Labels */
+.input-group {
+    position: relative;
+    margin-bottom: 25px;
+    text-align: left;
 }
 
-.input-box input:focus ~ label,
-.input-box input:valid ~ label {
-  top: -20px;
-  left: 0;
-  color: #667eea;
-  font-size: 14px;
+.input-group input {
+    width: 100%;
+    padding: 12px 15px;
+    background: #f3f4f6;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    outline: none;
+    font-size: 16px;
+    transition: 0.3s;
 }
 
-.input-box input:focus {
-  border-bottom: 2px solid #667eea;
+.input-group label {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+    pointer-events: none;
+    transition: 0.3s;
 }
 
+/* Label behavior when input is focused or has content */
+.input-group input:focus ~ label,
+.input-group input:valid ~ label {
+    top: -10px;
+    left: 10px;
+    font-size: 12px;
+    color: #1e3a8a;
+    background: #fff;
+    padding: 0 5px;
+}
+
+.input-group input:focus {
+    border-color: #1e3a8a;
+    background: #fff;
+}
+
+/* Options Area */
+.options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    font-size: 14px;
+}
+
+.options a {
+    text-decoration: none;
+    color: #777;
+}
+
+.options .remember {
+    color: #666;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Gradient Button */
 .btn {
-  background: #667eea;
-  border: none;
-  color: white;
-  padding: 12px;
-  width: 100%;
-  border-radius: 10px;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: 500;
-  transition: all 0.3s ease;
-  margin-top: 10px;
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(to right, #f59e0b, #ec4899); /* Orange to Pink */
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.4s;
+    box-shadow: 0 4px 15px rgba(236, 72, 153, 0.3);
 }
 
 .btn:hover {
-  background: #5563de;
-  transform: translateY(-2px);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(236, 72, 153, 0.4);
 }
 
-.register {
-  margin-top: 15px;
-  font-size: 14px;
-  color: #666;
+/* Messages */
+.error-message { background: #fee2e2; color: #b91c1c; padding: 10px; border-radius: 8px; margin-bottom: 15px; font-size: 14px; }
+.success-message { background: #dcfce7; color: #15803d; padding: 10px; border-radius: 8px; margin-bottom: 15px; font-size: 14px; }
+
+.form-footer {
+    margin-top: 25px;
+    font-size: 14px;
+    color: #666;
 }
 
-.register a {
-  color: #667eea;
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.register a:hover {
-  text-decoration: underline;
-}
-
-.error {
-  color: #ff3860;
-  font-size: 14px;
-  margin-bottom: 15px;
-  padding: 10px;
-  background: #ffebee;
-  border-radius: 5px;
-  border-left: 4px solid #ff3860;
-}
-
-/* Responsive */
-@media (max-width: 480px) {
-  .form-box {
-    width: 90%;
-    padding: 30px 25px;
-  }
+.form-footer a {
+    color: #4f46e5;
+    text-decoration: none;
+    font-weight: bold;
 }

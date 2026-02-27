@@ -105,7 +105,6 @@ if (isset($_SESSION['user_id'])) {
 
                 <div class="form-footer">
                     <p>Already have an account? <a href="login.php">Login here</a></p>
-                    <p><a href="../visitor/homepage.php">← Back to main page</a></p>
                 </div>
 
             </form>

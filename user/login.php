@@ -1,10 +1,11 @@
 <?php
 session_start();
+// Redirect if already logged in
 if (isset($_SESSION['user_id'])) {
-    if ($_SESSION['user_type'] == 'admin') {
+    if ($_SESSION['role'] == 'admin') {
         header("Location: ../manager/admin.php");
     } else {
-        header("Location: ../visitor/homepage.php");
+        header("Location: ../clientside/client_dashboard.php");
     }
     exit();
 }
@@ -14,66 +15,59 @@ if (isset($_SESSION['user_id'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Form</title>
+    <title>Login - Dealership</title>
     <link rel="stylesheet" href="../design/css/login.css">
-    <style>
-        .error { 
-            color: red; 
-            font-size: 14px; 
-            margin-bottom: 10px; 
-            padding: 10px;
-            border-radius: 4px;
-            background-color: rgba(255, 0, 0, 0.1);
-            text-align: center;
-        }
-        .success {
-            color: green;
-            font-size: 14px;
-            margin-bottom: 10px;
-            padding: 10px;
-            border-radius: 4px;
-            background-color: rgba(0, 255, 0, 0.1);
-            text-align: center;
-        }
-    </style>
 </head>
 <body>
     <div class="container">
         <div class="form-box">
-            <h2><i class="fas fa-sign-in-alt"></i> Login</h2>
-            
+            <h2>Login</h2>
+
             <?php if (isset($_SESSION['login_error'])): ?>
-                <div class="error"><?php echo htmlspecialchars($_SESSION['login_error']); unset($_SESSION['login_error']); ?></div>
-            <?php endif; ?>
-            
-            <?php if (isset($_SESSION['success_message'])): ?>
-                <div class="success"><?php echo htmlspecialchars($_SESSION['success_message']); unset($_SESSION['success_message']); ?></div>
-            <?php endif; ?>
-            
-            <?php if (isset($_GET['error'])): ?>
-                <div class="error"><?php echo htmlspecialchars($_GET['error']); ?></div>
-            <?php endif; ?>
-            
-            <?php if (isset($_GET['success'])): ?>
-                <div class="success"><?php echo htmlspecialchars($_GET['success']); ?></div>
-            <?php endif; ?>
-            
-            <form method="POST" action="../database/login.php">
-                <div class="input-box">
-                    <input type="text" id="username" name="username" >
-                    <label for="username">Username or Email</label>
+                <div class="error-message" style="color: red; margin-bottom: 10px;">
+                    <?php 
+                        echo htmlspecialchars($_SESSION['login_error']); 
+                        unset($_SESSION['login_error']);
+                    ?>
                 </div>
-                
-                <div class="input-box">
-                    <input type="password" id="password" name="password" >
+            <?php endif; ?>
+
+            <form id="loginForm" method="POST" action="../database/logindb.php">
+                <div class="input-group">
+                    <input type="email" id="email" name="email" required>
+                    <label for="email">Email</label>
+                </div>
+
+                <div class="input-group">
+                    <input type="password" id="password" name="password" required>
                     <label for="password">Password</label>
                 </div>
-                
-                <button type="submit" name="login" class="btn">Login</button>
-                
-                <p class="register">Don't have an account? <a href="signup.php">Sign Up</a></p>
+
+                <div class="input-group">
+                    <button type="submit" name="login" class="btn">Login</button>
+                </div>
+
+                <div class="form-footer">
+                    <p>Don't have an account? <a href="signup.php">Sign Up</a></p>
+                </div>
             </form>
         </div>
     </div>
-    < <script src="../access/javascript/login.js"></></body>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function (event) {
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value.trim();
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (!emailRegex.test(email)) {
+                event.preventDefault();
+                alert('Please enter a valid email address.');
+            } else if (password.length < 6) {
+                event.preventDefault();
+                alert('Password must be at least 6 characters long.');
+            }
+        });
+    </script>
+</body>
 </html>

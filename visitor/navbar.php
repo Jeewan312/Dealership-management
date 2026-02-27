@@ -16,8 +16,7 @@
                 <li> <a href="homepage.php">Home</a></li>
                 <li><a href="aboutus.php">About Us</a></li>
                 <li> <a href="service.php">Service</a> </li>
-                <li> <a href="products.php">Product</a></li>
-                <li><a href="/Dealorship/user/login.php">login</a></li>
+                <li><a href="../user/login.php">login</a></li>
             </ul>
         </div>
     </div>

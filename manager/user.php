@@ -20,9 +20,11 @@ $result = $conn->query($sql);
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="../design/css/admin.css">
     <meta charset="UTF-8">
     <title>Admin Dashboard - Users</title>
     <style>
+        
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
         body { background: #f4f6f9; min-height: 100vh; width: 100vw; overflow-x: hidden; }
         .dashboard { background: #ffffff; padding: 25px 30px; width: 100%; min-height: 100vh; }
@@ -45,9 +47,66 @@ $result = $conn->query($sql);
         .btn-cancel { background: #cbd5e1; color: #1e293b; }
         .btn-save { background: #0ea5e9; color: #fff; }
         .btn-delete-confirm { background: #ef4444; color: #fff; }
+        
     </style>
 </head>
 <body>
+
+
+<div class="app-layout">
+
+    <!-- Sidebar -->
+    <aside class="sidebar-nav">
+        <div class="logo-area">
+            <i class="fas fa-motorcycle"></i> BIKE SVC
+        </div>
+
+        <nav class="main-menu">
+            <ul>
+                <li class="is-active">
+                    <a href="#"><i class="fas fa-home"></i> Dashboard</a>
+                </li>
+
+                <div class="menu-category">Bookings</div>
+                <li>
+                    <a href="pending_booking.php"><i class="fas fa-clock"></i> Pending
+                        <span class="badge">5</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="confrom.php"><i class="fas fa-check"></i> Confirmed</a>
+                </li>
+
+                <div class="menu-category">Management</div>
+                <li>
+                    <a href="user.php"><i class="fas fa-users"></i> Users</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fas fa-tools"></i> Services</a>
+                </li>
+
+                <li class="logout">
+                    <a href="../user/logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Top Bar -->
+        <div class="top-bar">
+            <div style="display:flex;align-items:center;">
+                <button class="mobile-menu-btn" onclick="toggleMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="page-title">Dashboard</div>
+            </div>
+
+            <div class="user-info">
+                <i class="fas fa-user-circle"></i>
+                <span>Admin</span>
+                <i class="fas fa-caret-down"></i>
+            </div>
+        </div>
 
 <div class="dashboard">
     <h2>Users Dashboard</h2>
