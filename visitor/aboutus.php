@@ -26,7 +26,7 @@
         <div class="container">
             <h2>Who We Are</h2>
             <p>
-                Welcome to <strong>NavoWheels Automobile – Dealership Management System</strong>, 
+                Welcome to <strong>NavoWheels Automobile – Servicing Management System</strong>, 
                 a modern and efficient digital platform designed to simplify the daily operations 
                 of automobile dealerships. Our goal is to transform traditional showroom operations 
                 into a smooth, automated, and smart workflow.

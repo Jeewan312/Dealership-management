@@ -173,14 +173,36 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <p class="subheading">High-quality parts to keep your bike running at its best.</p>
         <div class="products-grid">
             <div class="product-card">
-                <img src="../uploads/images/brake.jpg" alt="Brake Shoes">
+                <img src="../uploads/images/brake.jpg" alt="Clutch Plates">
                 <h4>Brake Shoes</h4>
                 <p>Durable and reliable brake shoes for maximum safety.</p>
             </div>
             <div class="product-card">
-                <img src="../uploads/images/chain_spocket.jpg" alt="Chain & Sprocket Kits">
-                <h4>Chain & Sprocket Kits</h4>
-                <p>Precision-engineered kits for smooth power transfer.</p>
+                <?php
+include '../database/connection.php'; // make sure path is correct
+
+$sql = "SELECT * FROM images";
+$result = mysqli_query($conn, $sql);
+
+if ($result && mysqli_num_rows($result) > 0) {
+    while ($row = mysqli_fetch_assoc($result)) {
+        $id = htmlspecialchars($row['id']);
+        $name = htmlspecialchars($row['image_name']);
+        $imagePath = !empty($row['image_path']) ? $row['image_path'] : '../uploads/default.jpg';
+        
+        // Each image wrapped in its own container
+        echo '<div class="images-item">';
+        echo '  <div class="image-container">';
+        echo '      <img src="'.$imagePath.'" alt="'.$name.'" loading="lazy">';
+        echo '  </div>';
+        echo '  <h3>'.$name.'</h3>';
+        echo '</div>';
+    }
+} else {
+    echo '<p>No images found.</p>';
+}
+?>
+                               <p>Precision-engineered kits for smooth power transfer.</p>
             </div>
             <div class="product-card">
                 <img src="../uploads/images/clutch.jpg" alt="Clutch Plates">

@@ -42,7 +42,31 @@
                 <p>Durable and reliable brake shoes for maximum safety.</p>
             </div>
             <div class="product-card">
-                <img src="../uploads/images/ch.jpg" alt="Chain & Sprocket Kits">
+               <?php
+include '../database/connection.php'; // make sure path is correct
+
+$sql = "SELECT * FROM images";
+$result = mysqli_query($conn, $sql);
+
+if ($result && mysqli_num_rows($result) > 0) {
+    while ($row = mysqli_fetch_assoc($result)) {
+        $id = htmlspecialchars($row['id']);
+        $name = htmlspecialchars($row['image_name']);
+        $imagePath = !empty($row['image_path']) ? $row['image_path'] : '../uploads/default.jpg';
+        
+        // Each image wrapped in its own container
+        echo '<div class="images-item">';
+        echo '  <div class="image-container">';
+        echo '      <img src="'.$imagePath.'" alt="'.$name.'" loading="lazy">';
+        echo '  </div>';
+        echo '  <h3>'.$name.'</h3>';
+        echo '</div>';
+    }
+} else {
+    echo '<p>No images found.</p>';
+}
+?>
+
                 <h4>Chain & Sprocket Kits</h4>
                 <p>Precision-engineered kits for smooth power transfer.</p>
             </div>
