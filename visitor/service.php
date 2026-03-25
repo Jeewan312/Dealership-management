@@ -232,19 +232,19 @@ if ($result && mysqli_num_rows($result) > 0) {
         <form method="POST" action="../user/login.php">
             <div class="form-group">
                 <label for="name">Full Name *</label>
-                <input type="text" id="name" name="name" placeholder="John Doe" required>
+                <input type="text" id="name" name="name" placeholder="Ram " required>
             </div>
             <div class="form-group">
                 <label for="email">Email Address *</label>
-                <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                <input type="email" id="email" name="email" placeholder="@example.com" required>
             </div>
             <div class="form-group">
                 <label for="phone">Phone Number</label>
-                <input type="tel" id="phone" name="phone" placeholder="+1 234 567 890">
+                <input type="tel" id="phone" name="phone" placeholder=" 234 567 890">
             </div>
             <div class="form-group">
                 <label for="bike_model">Bike Model</label>
-                <input type="text" id="bike_model" name="bike_model" placeholder="e.g., Yamaha R15">
+                <input type="text" id="bike_model" name="bike_model" placeholder="e.g: Yamaha R15">
             </div>
             <div class="form-group">
                 <label for="service_type">Service Package *</label>
